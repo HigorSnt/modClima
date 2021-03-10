@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -25,13 +26,14 @@ public class Mill {
     @Column
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "mill", fetch = FetchType.EAGER)
     private List<Harvest> harvests;
 
     public Mill update(Mill mill) {
         this.name = mill.getName();
 
         this.harvests.clear();
+        mill.getHarvests().forEach(harvest -> harvest.setMill(this));
         this.harvests.addAll(mill.getHarvests());
 
         return this;

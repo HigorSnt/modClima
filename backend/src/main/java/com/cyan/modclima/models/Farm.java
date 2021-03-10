@@ -1,9 +1,11 @@
 package com.cyan.modclima.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -29,7 +31,12 @@ public class Farm {
     @Column
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "harvest_id")
+    @JsonIgnore
+    private Harvest harvest;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "farm")
     private List<Field> fields;
 
     public Farm update(Farm farm) {
@@ -37,6 +44,7 @@ public class Farm {
         this.name = farm.getName();
 
         this.fields.clear();
+        farm.getFields().forEach(field -> field.setFarm(this));
         this.fields.addAll(farm.getFields());
 
         return this;

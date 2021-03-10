@@ -1,50 +1,53 @@
-package com.cyan.modclima.models;
+package com.cyan.modclima.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.cyan.modclima.models.Field;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.locationtech.jts.geom.Point;
 import org.n52.jackson.datatype.jts.GeometryDeserializer;
 import org.n52.jackson.datatype.jts.GeometrySerializer;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
-@Builder
-@Entity
-@Table(name = "fields")
-public class Field {
+@AllArgsConstructor
+public class ShowFieldDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
-    @Column
     private String code;
 
     @JsonSerialize(using = GeometrySerializer.class)
     @JsonDeserialize(contentUsing = GeometryDeserializer.class)
-    @Column
     private Point geom;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "farm_id")
-    @JsonIgnore
     private Farm farm;
 
-    public Field update(Field field) {
+    public ShowFieldDTO(Field field) {
+        this.id = field.getId();
         this.code = field.getCode();
+        this.farm = new Farm(field.getFarm().getId(), field.getFarm().getCode(), field.getFarm().getName());
         this.geom = field.getGeom();
-
-        return this;
     }
+
+}
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+class Farm {
+
+    private Long id;
+    private String code;
+    private String name;
 
 }

@@ -1,5 +1,6 @@
 package com.cyan.modclima.services;
 
+import com.cyan.modclima.dtos.ShowFieldDTO;
 import com.cyan.modclima.exceptions.NotFoundException;
 import com.cyan.modclima.models.Field;
 import com.cyan.modclima.repositories.FieldRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class FieldService {
@@ -20,8 +22,13 @@ public class FieldService {
         this.repository = repository;
     }
 
-    public List<Field> list(Pageable pageable, String code) {
-        return repository.findAllByCodeContainingIgnoreCase(pageable, code);
+    public List<ShowFieldDTO> list(Pageable pageable, String code) {
+        List<Field> list = repository.findAllByCodeContainingIgnoreCase(pageable, code);
+
+        return list
+                .stream()
+                .map(ShowFieldDTO::new)
+                .collect(Collectors.toList());
     }
 
     public Optional<Field> get(Long id) {
