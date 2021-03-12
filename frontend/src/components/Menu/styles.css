@@ -1,0 +1,43 @@
+aside {
+  background-color: rgb(228, 228, 228);
+	width: 200px;
+	height: 100vh;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding: 2rem;
+
+	display: flex;
+	flex-direction: column;
+}
+
+aside img {
+	height: 60px;
+}
+
+#menu-options-box {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+}
+
+#menu-options {
+  display: flex;
+	height: 50px;
+	flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#option-selected {
+  width: 10px;
+  height: 100%;
+  background-color: #05aff2;
+  border-radius: 10px;
+}
+
+#option-icon {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,21 @@
+#items-container {
+  width: 100%;
+  margin-top: 35px;
+}
+
+#items-header {
+  border-bottom: 3px solid #05aff2;
+}
+
+#items {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  padding: 10px;
+}
+
+#items-header p {
+  width: 50%;
+  color: #05aff2;
+}

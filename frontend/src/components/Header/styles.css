@@ -1,0 +1,33 @@
+#header-box {
+  width: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#header-box select {
+  width: 50%;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding-left: 20px;
+  background-color: #eeebeb;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#header-box select option {
+  height: 20px;
+}
+
+.filter-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}

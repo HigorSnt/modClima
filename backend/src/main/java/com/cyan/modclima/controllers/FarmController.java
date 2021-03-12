@@ -19,6 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("*")
 @Api(tags = "Farm Controller", produces = "application/json", consumes = "application/json")
 @RestController
 @RequestMapping("/farms")

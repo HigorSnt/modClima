@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("*")
 @Api(tags = "Harvest Controller", produces = "application/json", consumes = "application/json")
 @RestController
 @RequestMapping("/harvests")

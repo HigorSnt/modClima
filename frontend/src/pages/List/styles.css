@@ -1,0 +1,8 @@
+#list-container {
+  width: 80%;
+  padding: 30px;
+}
+
+.react-tabs__tab {
+  min-width: 150px;
+}
