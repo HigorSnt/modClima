@@ -87,6 +87,9 @@ public class HarvestServiceImpl implements HarvestService {
         Harvest save = repository.save(harvest);
 
         List<Harvest> harvests = mill1.getHarvests();
+
+
+
         harvests.add(save);
         mill1.setHarvests(harvests);
 
