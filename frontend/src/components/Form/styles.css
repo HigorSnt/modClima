@@ -1,0 +1,68 @@
+#form-register fieldset {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+#register-button {
+	margin-top: 30px;
+	height: 40px;
+	width: 130px;
+	border-radius: 30px;
+	background-color: #05c7f2;
+	outline: none;
+	border: none;
+	color: white;
+	transition: background-color 0.2s;
+	align-self: flex-end;
+}
+
+#register-button:disabled {
+	background-color: #778ba5;
+}
+
+#register-button:hover:enabled {
+	background-color: #05aff2;
+}
+
+#form-register .react-datepicker-wrapper,
+#form-register .react-datepicker-wrapper .react-datepicker__input-container,
+#form-register .react-datepicker__input-container input {
+	width: 100%;
+}
+
+#form-register .react-datepicker__input-container input {
+	border-radius: 0;
+	margin-top: 8px;
+	height: 40px;
+}
+
+#form-register #input-container {
+	margin: 10px 0;
+}
+
+#map-field-title {
+	align-self: center;
+	margin-bottom: 20px;
+}
+
+#map-button-continue {
+	height: 40px;
+	width: 150px;
+	margin-top: 10px;
+	align-self: flex-end;
+	border-radius: 30px;
+	background-color: #05c7f2;
+	outline: none;
+	border: none;
+	color: white;
+	transition: background-color 0.2s;
+}
+
+#map-button-continue:disabled {
+	background-color: #778ba5;
+}
+
+#map-button-continue:hover:enabled {
+	background-color: #05aff2;
+}

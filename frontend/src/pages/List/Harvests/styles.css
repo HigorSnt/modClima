@@ -1,0 +1,38 @@
+#container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+}
+
+#search-date-container {
+	width: 650px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.react-datepicker__input-container input {
+	width: 250px;
+	background-color: #525a57;
+	border: none;
+	outline: none;
+	height: 30px;
+	padding: 0 5px 0 15px;
+	font-weight: normal;
+	color: white;
+	border-radius: 30px;
+}
+
+#search-button-date {
+	border-radius: 60px;
+}
+
+.react-datepicker__close-icon::after {
+	background-color: #e82a46;
+}
+
+#error p {
+	color: #e82a46;
+}

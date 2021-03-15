@@ -1,0 +1,57 @@
+#farm-details-box {
+	display: flex;
+	flex-direction: row;
+}
+
+#farm-info-container {
+	margin: 30px auto;
+	width: 80%;
+}
+
+#farm-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#farm-title span {
+	font-size: 30px;
+	color: #05aff2;
+	margin-left: 50px;
+}
+
+#farms-fields {
+	margin-top: 100px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.farm-title-box {
+	display: flex;
+	flex-direction: row;
+}
+
+.farm-title-box span {
+	margin-right: 30px;
+}
+
+.farm-title {
+	color: #383d3b;
+	font-size: 20px;
+}
+
+.harvest-farm-info-area {
+	margin-top: 20px;
+
+	display: flex;
+	align-items: center;
+}
+
+.harvest-farm-info-area span {
+	color: #383d3b;
+	font-size: 18px;
+	margin-left: 20px;
+}

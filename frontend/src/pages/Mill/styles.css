@@ -1,0 +1,58 @@
+#mill-details-box {
+	display: flex;
+	flex-direction: row;
+}
+
+#mill-info-container {
+	margin: 30px auto;
+	width: 80%;
+}
+
+#mill-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#mill-title span {
+	font-size: 30px;
+	color: #05aff2;
+	margin-left: 50px;
+}
+
+#mill-harvests {
+	margin-top: 100px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.mill-title-box {
+	display: flex;
+	flex-direction: row;
+}
+
+.mill-title-box span {
+	margin-right: 30px;
+}
+
+.mill-title {
+	color: #383d3b;
+	font-size: 20px;
+}
+
+.mill-info-area {
+	margin-top: 20px;
+
+	display: flex;
+	align-items: center;
+}
+
+.mill-info-area span {
+	color: #383d3b;
+	font-size: 16px;
+	margin-left: 20px;
+}

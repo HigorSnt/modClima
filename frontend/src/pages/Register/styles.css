@@ -1,0 +1,44 @@
+#register-container {
+	margin: 30px auto;
+	width: 60%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+#register-container > fieldset {
+	padding: 2em;
+}
+
+.register-dropdown-container {
+	width: 50%;
+	margin: 0 auto;
+	background-color: #525a57;
+	border-radius: 50px;
+}
+
+#register-next {
+	margin-top: 30px;
+	width: 100px;
+	height: 40px;
+	border-radius: 30px;
+	background-color: #05c7f2;
+	outline: none;
+	border: none;
+	color: white;
+	transition: background-color 0.2s;
+	align-self: flex-end;
+}
+
+#register-next:disabled {
+	background-color: #778ba5;
+}
+
+#register-next:hover:enabled {
+	background-color: #05aff2;
+}
+
+.register-input {
+	background-color: #525a57 !important;
+	margin-top: 8px;
+}

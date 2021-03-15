@@ -1,0 +1,22 @@
+.dropdown {
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown-placeholder {
+  color: white;
+}
+
+.dropdown-container {
+  width: 150px;
+  background-color: #525a57;
+  border-radius: 50px;
+}
+
+#farm-search-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
