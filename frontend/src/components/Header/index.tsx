@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BiFilter } from 'react-icons/bi';
 
 import './styles.css';
@@ -11,12 +11,6 @@ const options = [
 ];
 
 const Header: React.FC = () => {
-	const [value, setValue] = useState('');
-
-	function handleChange() {
-		console.log('aaiia');
-	}
-
 	return (
 		<div id="header-box">
 			<div className="filter-box">

@@ -2,17 +2,18 @@ package com.cyan.modclima.controllers;
 
 import com.cyan.modclima.dtos.Error;
 import com.cyan.modclima.dtos.MillDTO;
+import com.cyan.modclima.dtos.Notification;
 import com.cyan.modclima.exceptions.NotFoundException;
 import com.cyan.modclima.models.Mill;
 import com.cyan.modclima.services.MillsService;
+import com.cyan.modclima.services.implementations.MillsServiceImpl;
 import com.cyan.modclima.translators.MillTranslator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,25 +27,34 @@ import java.util.Optional;
 public class MillsController {
 
     private final MillsService service;
+    private final SimpMessagingTemplate template;
 
     @Autowired
-    public MillsController(MillsService millsService) {
-        this.service = millsService;
+    public MillsController(MillsServiceImpl millsServiceImpl, SimpMessagingTemplate template) {
+        this.service = millsServiceImpl;
+        this.template = template;
     }
 
     @ApiOperation(value = "Creates a mill.")
     @PostMapping
     public ResponseEntity<Mill> create(@RequestBody @Valid MillDTO mill) {
-        return ResponseEntity.status(201).body(service.create(MillTranslator.toModel(mill)));
+        Mill save = service.create(MillTranslator.toModel(mill));
+        this.template.convertAndSend("/topic/save", Notification
+                .builder()
+                .message(
+                        String.format("A mill %s has been registered!", save.getName())
+                )
+                .redirectURL("/mills/" + save.getId())
+                .build());
+        return ResponseEntity.status(201).body(save);
     }
 
     @ApiOperation(value = "Lists all mills and allows filtering by name.")
     @GetMapping
     public ResponseEntity<List<Mill>> list(
-            @PageableDefault Pageable pageable,
             @RequestParam(defaultValue = "", required = false) String name
     ) {
-        return ResponseEntity.ok(service.list(pageable, name));
+        return ResponseEntity.ok(service.list(name));
     }
 
     @ApiOperation(value = "Retrieves a mill from your id.")

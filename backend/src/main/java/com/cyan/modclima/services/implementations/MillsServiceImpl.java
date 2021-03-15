@@ -1,22 +1,22 @@
-package com.cyan.modclima.services;
+package com.cyan.modclima.services.implementations;
 
 import com.cyan.modclima.exceptions.NotFoundException;
 import com.cyan.modclima.models.Mill;
 import com.cyan.modclima.repositories.MillsRepository;
+import com.cyan.modclima.services.MillsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MillsService {
+public class MillsServiceImpl implements MillsService {
 
     private final MillsRepository repository;
 
     @Autowired
-    public MillsService(MillsRepository repository) {
+    public MillsServiceImpl(MillsRepository repository) {
         this.repository = repository;
     }
 
@@ -24,8 +24,8 @@ public class MillsService {
         return repository.save(mill);
     }
 
-    public List<Mill> list(Pageable pageable, String name) {
-        return repository.findAllByNameContainingIgnoreCase(pageable, name);
+    public List<Mill> list(String name) {
+        return repository.findAllByNameContainingIgnoreCase(name);
     }
 
     public Optional<Mill> get(Long id) {

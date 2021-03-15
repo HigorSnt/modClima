@@ -1,9 +1,11 @@
 package com.cyan.modclima.dtos;
 
-import com.cyan.modclima.models.Harvest;
 import com.cyan.modclima.models.Mill;
 import com.cyan.modclima.translators.HarvestTranslator;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;

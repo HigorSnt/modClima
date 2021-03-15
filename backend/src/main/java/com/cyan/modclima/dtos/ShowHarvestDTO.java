@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +38,10 @@ public class ShowHarvestDTO {
         this.code = harvest.getCode();
         this.id = harvest.getId();
         this.start = harvest.getStart();
-        this.end = harvest.getStart();
+        this.end = harvest.getEnd();
         this.farms = FarmTranslator.toListDto(harvest.getFarms());
         this.mill = new Mill(harvest.getMill().getId(), harvest.getMill().getName());
     }
-
 
 }
 

@@ -3,6 +3,7 @@ package com.cyan.modclima.translators;
 import com.cyan.modclima.dtos.HarvestDTO;
 import com.cyan.modclima.models.Harvest;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,7 @@ public class HarvestTranslator {
     }
 
     public static List<HarvestDTO> toListDto(List<Harvest> harvests) {
+        if (harvests == null) return Collections.emptyList();
         return harvests
                 .stream()
                 .map(HarvestTranslator::toOneDto)

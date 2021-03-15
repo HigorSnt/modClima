@@ -11,7 +11,6 @@ import org.locationtech.jts.geom.Point;
 import org.n52.jackson.datatype.jts.GeometryDeserializer;
 import org.n52.jackson.datatype.jts.GeometrySerializer;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 
 @Getter

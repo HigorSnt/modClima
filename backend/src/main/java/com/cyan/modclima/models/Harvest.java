@@ -1,16 +1,14 @@
 package com.cyan.modclima.models;
 
+import com.cyan.modclima.annotations.StartDateBeforeEndDate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.*;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -22,13 +20,13 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "harvests")
+@StartDateBeforeEndDate
 public class Harvest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
     @Column
     private String code;
 
@@ -42,12 +40,12 @@ public class Harvest {
     @Column(name = "end_date")
     private LocalDate end;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.MERGE)
     @JoinColumn(name = "mill_id")
     @JsonIgnore
     private Mill mill;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "harvest")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "harvest", cascade = CascadeType.MERGE)
     private List<Farm> farms;
 
     public Harvest update(Harvest harvest) {

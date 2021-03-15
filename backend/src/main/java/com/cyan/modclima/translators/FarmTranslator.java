@@ -3,6 +3,7 @@ package com.cyan.modclima.translators;
 import com.cyan.modclima.dtos.FarmDTO;
 import com.cyan.modclima.models.Farm;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,8 @@ public class FarmTranslator {
     }
 
     public static List<FarmDTO> toListDto(List<Farm> farms) {
+        if (farms == null) return Collections.emptyList();
+
         return farms
                 .stream()
                 .map(FarmTranslator::toOneDto)

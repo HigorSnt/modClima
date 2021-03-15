@@ -1,8 +1,12 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
+import FarmsList from './Farms';
+import FieldsList from './Fields';
+import HarvestsList from './Harvests';
+import MillsList from './Mills';
+
 import 'react-tabs/style/react-tabs.css';
-import Mills from './Mills';
 import './styles.css';
 
 const List: React.FC = () => {
@@ -15,12 +19,22 @@ const List: React.FC = () => {
 					<Tab>Farms</Tab>
 					<Tab>Fields</Tab>
 				</TabList>
+
 				<TabPanel>
-					<Mills />
+					<MillsList />
 				</TabPanel>
-				<TabPanel><p>kvndjkcnd</p></TabPanel>
-				<TabPanel><p>cklkdackld</p></TabPanel>
-				<TabPanel><p>cdncdjkliio</p></TabPanel>
+
+				<TabPanel>
+					<HarvestsList />
+				</TabPanel>
+
+				<TabPanel>
+					<FarmsList />
+				</TabPanel>
+
+				<TabPanel>
+					<FieldsList />
+				</TabPanel>
 			</Tabs>
 		</div>
 	);
