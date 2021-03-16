@@ -19,6 +19,11 @@
 
 Aplicação desenvolvida para o desafio fullstack da Cyan Agroanalytics.
 
+# 🔗 Acessar API e Site
+
+* [Site](https://modclima.netlify.app/)
+* [API](https://modclima.herokuapp.com/)
+* [Swagger](https://modclima.herokuapp.com/swagger-ui/index.html)
 ## 🛠 Utilização
 
 - ### **Pré-requisitos**
