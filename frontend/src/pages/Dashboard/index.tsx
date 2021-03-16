@@ -10,7 +10,7 @@ import Menu from '../../components/Menu';
 import { Notification } from '../../@types';
 
 const Dashboard: React.FC = () => {
-	const socket = new SockJS('http://localhost:8080/ws');
+	const socket = new SockJS('https://modclima.herokuapp.com//ws');
 	const stompClient = Stomp.over(socket);
 	const history = useHistory();
 
